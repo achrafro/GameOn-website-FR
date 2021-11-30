@@ -11,10 +11,7 @@
 </head>
 
 <body>
-  <div class="confirmation" > 
-   
-    Merci ! Votre réservation a été reçue. !
-        </div>
+
 
 
   <div class="topnav" id="myTopnav">
@@ -60,9 +57,16 @@
     <div class="bground">
       <div class="content">
         <span class="close"></span>
-        <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
-            <div class="formData">
+        <div class="modal-body" >
+          <div class="confirmation" > 
+   
+            Merci ! Votre réservation a été reçue. !
+      
+                </div>
+        
+                <form name="reserve" action="index.html" method="get"  onsubmit="return true"
+                >
+                  <div class="formData">
               <label for="first" class="prenom">Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
             </div>
@@ -137,6 +141,8 @@
     <p class="copyrights">
       Copyright 2014 - 2020, GameOn Inc.
     </p>
+   
+
   </footer>
   <script src="modal.js"></script>
 </body>

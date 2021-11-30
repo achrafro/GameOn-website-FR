@@ -536,18 +536,12 @@ display: none;
 
 /* CONFIRMATION MESSAGE */
 .confirmation {
-
- border: 1px solid black;
- border-radius: 55px;
- background: #232323;
+ display: flex;
+  background: #232323;
 color:  white;
 width: 50%;
 height: 150px;
-display: none;
 justify-content: center;
 align-items: center;
- position:fixed;
- top : 50%;
- left : 20%;
  z-index: 999;
   }
