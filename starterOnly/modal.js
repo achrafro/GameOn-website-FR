@@ -87,7 +87,7 @@ prenom.addEventListener("keyup",function(){
  
  }
  else {
-  newelement.innerText="c'est bon pour prenom ";
+  newelement.innerText="";
   formData[0].appendChild(newelement);
   newelement.style.color ="green"
    prenom.style.border ="2px solid green"
@@ -111,7 +111,7 @@ nom.addEventListener("keyup", function(){
  
    }
   else {
-    newelement.innerText="c'est bon pour le nom ";
+    newelement.innerText=" ";
     formData[1].appendChild(newelement);
     newelement.style.color ="green"
     nom.style.border ="2px solid green"
@@ -129,7 +129,7 @@ email.addEventListener("keyup",function(){
   if  (email.value == "" || email.value.length <= 2 || email.value.indexOf(".",0) < 0  || email.value.indexOf("@",0) < 0) 
   {
 
-    newelement.innerText="Veuillez entrer un email correcte"
+    newelement.innerText="veuillez entrer une adresse email valide."
     formData[2].appendChild(newelement);
     newelement.style.color ="RED"
     email.style.border ="2px solid red" ;
@@ -139,7 +139,7 @@ email.addEventListener("keyup",function(){
   }
   else {
 
-    newelement.innerText="c'est bon pour l'email ";
+    newelement.innerText=" ";
     formData[2].appendChild(newelement);
     newelement.style.color ="green"
     email.style.border ="2px solid green"
@@ -156,7 +156,7 @@ email.addEventListener("keyup",function(){
 
 DateDeNaissance.addEventListener("change",function(){
   if (DateDeNaissance.value == "")  {
-    newelement.innerText="Veuillez entrer un date de naissance"
+    newelement.innerText="Veuillez entrer un date de naissance Valide"
     formData[3].appendChild(newelement);
     newelement.style.color ="RED"
     DateDeNaissance.style.border ="2px solid red" ;
@@ -166,7 +166,7 @@ DateDeNaissance.addEventListener("change",function(){
   }
   else {
 
-    newelement.innerText="c'est bon pour la date naissance ";
+    newelement.innerText=" ";
     formData[3].appendChild(newelement);
     newelement.style.color ="green"
     DateDeNaissance.style.border ="2px solid green"
@@ -190,7 +190,7 @@ NumeroTournois.addEventListener("change",function(){
 }
 else { 
 
-  newelement.innerText="c'est bon pour le numero de tornoi ";
+  newelement.innerText=" ";
   formData[4].appendChild(newelement);
   newelement.style.color ="green"
   NumeroTournois.style.border ="2px solid green"
@@ -201,14 +201,36 @@ else {
 
 })
 
+
+btn_submit.addEventListener("click",function() {
+  
+  if (chekcondition.checked) {
+    newelement.innerText="";
+    formData[6].appendChild(newelement);
+    newelement.style.color ="green"
+    test_condition = true ;
+  }
+  else {
+    newelement.innerText="il faut accepter les conditions d'utilisation ";
+    formData[6].appendChild(newelement);
+    newelement.style.color ="red"
+    test_condition = false ;
+  
+  }
+  
+  })
+
+  //  ville condition
+ 
+
 let loc = document.getElementsByName("location");
-newelement.innerText="FAUT CHOISIR UNE VILLE";
+newelement.innerText="il faut choisir une ville";
   formData[5].appendChild(newelement);
   newelement.style.color ="red"
  
 for (let i =0 ; i<=5;i++) { 
 loc[i].addEventListener("change",function(){
-  newelement.innerText="VILLE EST CHOISI";
+  newelement.innerText="";
   formData[5].appendChild(newelement);
   newelement.style.color ="green"
   test_ville = true ;
@@ -217,128 +239,13 @@ loc[i].addEventListener("change",function(){
   
 
 }
-chekcondition.addEventListener("change",function() {
-  
-if (chekcondition.checked) {
-  newelement.innerText="condition accepté";
-  formData[6].appendChild(newelement);
-  newelement.style.color ="green"
-  test_condition = true ;
-}
-else {
-  newelement.innerText="faut accepté condition ";
-  formData[6].appendChild(newelement);
-  newelement.style.color ="red"
-  test_condition = false ;
 
-}
-
-})
 
 
 
 }
 
 
-
- 
-
-// function validate(e) {
-
-//  console.log(formulaireOK);
-// //  Verification de prenom :
-// if (prenom.value == "" || prenom.value.length <= 2) {
-//    formulaireOK = false;
-//   prenom.focus();
-//   e.preventDefault();
-//   newelement.innerText="Veuillez entrer 2 caractères ou plus pour le champ du prenom"
-//   formData[0].appendChild(newelement);
-   
-//  } 
-//  // verification de nom : 
-
-// else if (nom.value == "" || nom.value.length <= 2) {
-//    nom.focus(); 
-//    newelement.innerText="Veuillez entrer 2 caractères ou plus pour le champ du nom"
-//    formData[1].appendChild(newelement);
-//    formulaireOK = false;
-//     e.preventDefault();
- 
- 
-//  }  
-//  // verification de email : 
-
-
-//  else if  (email.value == "" || email.value.length <= 2 || email.value.indexOf(".",0) < 0  || email.value.indexOf("@",0) < 0) {
-//    email.focus(); 
-//    newelement.innerText="vous devez entrer une adresse email correcte"
-//    formData[2].appendChild(newelement);
-//    formulaireOK = false;
-//     e.preventDefault();
-
- 
-//  }   
-// //  verif date de naissance : 
-// else if (DateDeNaissance.value == "") {
-//    DateDeNaissance.focus(); 
-//     newelement.innerText="Vous devez entrer votre date de naissance."
-//    formData[3].appendChild(newelement);
-//    formulaireOK = false;
-//     e.preventDefault();
-
-
-//  } 
-
-
-// // verification ville selecctionné //
-
-
-// else if (verif_ville() == false) {
-//     newelement.innerText="Vous devez Choisir une ville"
-//    formData[5].appendChild(newelement);
-//    formulaireOK = false;
-//     e.preventDefault();
-
-
-//  }
-
-
-//  // //  NUMERO TOURNOI verification
-//  else if (isNaN (parseInt(NumeroTournois.value))||  (parseInt(NumeroTournois.value)) < 0 ) {
-//    NumeroTournois.focus(); 
-//     newelement.innerText="il faut selectionner Le numero de tournoi"
-//    formData[4].appendChild(newelement);
-//    formulaireOK = false;
-//     e.preventDefault();
-
-
-//     } 
-
-
-//  //  condition check
-
-//  else if (chekcondition.checked == false) { 
-//         newelement.innerText="Vous devez vérifier que vous acceptez les termes et conditions."
-//        formData[6].appendChild(newelement);
-//        formulaireOK = false;
-//        e.preventDefault();
-
-//  } 
-
-
-
-//  else  {
-
-// reserve.style.display ="none";
-// msgconfirmation.style.display ="block";
-
-
-
-//     }
-
-
-// }
- 
 
 verif(); 
 
@@ -371,7 +278,7 @@ if (test_numero_tournoi === false) {
   
 }
 if (test_ville === false) {
-  newelement.innerText="FAUT CHOISIR UNE VILLE";
+  newelement.innerText="il faut choisir une ville";
   formData[5].appendChild(newelement);
   newelement.style.color ="red"  
 }
@@ -392,4 +299,4 @@ let testo = test_prenom && test_nom && test_email && test_numero_tournoi && test
 
 
 
- 
+ F

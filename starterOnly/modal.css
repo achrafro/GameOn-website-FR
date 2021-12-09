@@ -106,12 +106,11 @@ main {
   font-weight: bolder;
   color: black;
   padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding-left: 0vw;
+  padding-right: 0vw;
   margin: 1px 20px 15px;
   border-radius: 2rem;
-  text-align: justify;
-
+ 
 
 }
 
@@ -412,6 +411,7 @@ input[data-error]::after {
   overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
+ 
 }
 .hero-content {
   padding: 51px 67px;
@@ -438,13 +438,14 @@ input[data-error]::after {
 .hero-headline {
   font-size: 6rem;
   font-weight: normal;
-  white-space: nowrap;
-}
+  }
 .hero-text {
   width: 146%;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
 }
 .btn-signup {
   outline: none;
@@ -478,6 +479,9 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -537,11 +541,35 @@ display: none;
 /* CONFIRMATION MESSAGE */
 .confirmation {
  display: flex;
-  background: #232323;
+background: #232323;
 color:  white;
-width: 50%;
 height: 150px;
 justify-content: center;
 align-items: center;
  z-index: 999;
+  }
+  
+
+  @media screen and (max-width: 460px) {
+    html, body {
+       overflow-x: hidden;
+  }
+  main {
+    margin : 0px 0px;
+   }
+   .hero-headline {
+    font-size: 3.5rem;
+    overflow-wrap: break-word;
+    width : 90%;
+    margin-right: 0px;
+    margin-left: 0px;
+ 
+   }
+.hero-text{
+
+  width: 70%;
+  white-space: normal;
+  }
+
+
   }
