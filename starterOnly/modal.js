@@ -72,8 +72,22 @@ newelement.appendChild(txt);
  var test_numero_tournoi = false;  
 var test_condition = true ;
 var test_ville = false ;
+function date_verif(d1 ,d2) {
+   var year  = DateDeNaissance.value.substr(0,4);   // annneé entrer en formulaire
+    var year_en_number = parseInt(year,10); // en entier
+    year_en_number =  year_en_number + 12 ;
+    console.log( year_en_number);
+      var anne_actuel =  new Date().getFullYear(); // anneé d'aujourd'hui
+ if (year_en_number >= anne_actuel) {
+   return false
+ }
+ else {
+   return true ;
+ }
 
 
+}
+ 
   
 function verif() {
 
@@ -155,15 +169,26 @@ email.addEventListener("keyup",function(){
 //  verification de date de naisssance  //
 
 DateDeNaissance.addEventListener("change",function(){
-  if (DateDeNaissance.value == "")  {
+  if (DateDeNaissance.value == "" )  {
     newelement.innerText="Veuillez entrer un date de naissance Valide"
     formData[3].appendChild(newelement);
     newelement.style.color ="RED"
     DateDeNaissance.style.border ="2px solid red" ;
     test_date_naissance = false ;
+  
 
 
   }
+else if (date_verif()=== false) {
+  newelement.innerText="tu dois etre agé plus que 12 ans pour jouer"
+  formData[3].appendChild(newelement);
+  newelement.style.color ="RED"
+  DateDeNaissance.style.border ="2px solid red" ;
+  test_date_naissance = false ;
+}
+
+
+
   else {
 
     newelement.innerText=" ";
@@ -171,9 +196,11 @@ DateDeNaissance.addEventListener("change",function(){
     newelement.style.color ="green"
     DateDeNaissance.style.border ="2px solid green"
     test_date_naissance = true ;
+    
 
+    
 
-  }
+    }
 
 })
 
@@ -297,6 +324,3 @@ let testo = test_prenom && test_nom && test_email && test_numero_tournoi && test
  
  ) 
 
-
-
- F
