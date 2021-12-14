@@ -25,7 +25,6 @@ msgconfirmation.style.display ="none";
  
    modalbg.style.display = "none";
  
-
  }
    
  
@@ -92,24 +91,21 @@ function date_verif(d1 ,d2) {
 function verif() {
 
 prenom.addEventListener("keyup",function(){
- if (prenom.value == "" || prenom.value.length <=1) {
+if (prenom.value == "" || prenom.value.length <=1) {
   newelement.innerText="Veuillez entrer 2 caractères ou plus pour le champ du prenom"
   formData[0].appendChild(newelement);
   newelement.style.color ="RED"
   prenom.style.border ="2px solid red"
   test_prenom = false;
- 
  }
- else {
+else
+{
   newelement.innerText="";
   formData[0].appendChild(newelement);
   newelement.style.color ="green"
    prenom.style.border ="2px solid green"
    test_prenom = true;
- 
-
  }
-
 })
 
 //  check pour le nom 
